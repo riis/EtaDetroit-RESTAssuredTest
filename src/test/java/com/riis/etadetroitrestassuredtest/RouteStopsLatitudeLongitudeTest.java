@@ -16,7 +16,7 @@ public class RouteStopsLatitudeLongitudeTest {
 		response = given().contentType("application/json").get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/1/routes/stops");
 		response.then().statusCode(200);
 		response.then().body("size()", equalTo(45));
-		response.then().body("brandColor",Matchers.notNullValue());
+		response.then().body("brandColor",Matchers.hasItem("#BC0E29"));
 		
 	}
 
@@ -25,7 +25,7 @@ public class RouteStopsLatitudeLongitudeTest {
 		response = given().contentType("application/json").get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/2/routes/stops");
 		response.then().statusCode(200);
 		response.then().body("size()", equalTo(38));
-		response.then().body("brandColor",Matchers.notNullValue());
+		response.then().body("brandColor",Matchers.hasItem("#054839"));
 	}
 	
 	@Test
@@ -33,21 +33,21 @@ public class RouteStopsLatitudeLongitudeTest {
 		response = given().contentType("application/json").get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/3/routes/stops");
 		response.then().statusCode(200);
 		response.then().body("size()", equalTo(3));
-		response.then().body("brandColor",Matchers.notNullValue());
+		response.then().body("brandColor",Matchers.hasItem("#498BC5"));
 	}
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenPeopleMoverCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		response = given().contentType("application/json").get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/4/routes/stops");
 		response.then().statusCode(200);
 		response.then().body("size()", equalTo(1));
-		response.then().body("brandColor",Matchers.notNullValue());
+		response.then().body("brandColor",Matchers.hasItem("#21487A"));
 	}
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenQLineCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		response = given().contentType("application/json").get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/5/routes/stops");
 		response.then().statusCode(200);
 		response.then().body("size()", equalTo(1));
-		response.then().body("brandColor",Matchers.notNullValue());
+		response.then().body("brandColor",Matchers.hasItem("#973c37"));
 	}
 	
 }
