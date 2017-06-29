@@ -3,6 +3,8 @@ package com.riis.etadetroitrestassuredtest;
 import static com.jayway.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.util.Arrays;
+
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
@@ -123,7 +125,7 @@ public class RouteStopStopTimesTest {
 		response.then().body("size()", equalTo(14));
 		response.then().body("stopID", Matchers.hasItem("DDOT_127"));
 		response.then().body("stopName", Matchers.hasItem("State Fairgrounds Transit Center"));
-	
+
 	}
 
 	@Test
@@ -144,10 +146,7 @@ public class RouteStopStopTimesTest {
 		response.then().body("size()", equalTo(6));
 		response.then().body("latitude", Matchers.hasItem("42.330142"));
 		response.then().body("longitude", Matchers.hasItem("-83.040176"));
-		
-	//	response.then().assertThat().body("stopName",Matchers.hasItem("Cass + Putnam")).body("stopTimes", Matchers.containsInAnyOrder(Arrays.asList(equalTo("6:39AM"),equalTo("8:54AM"),equalTo("5:15PM"))));
-//        .body("info.slots",equalTo(150));
-	//	response.then().body("stopTimes", Matchers.containsInAnyOrder(Arrays.asList(equalTo("6:39AM"),equalTo("8:54AM"),equalTo("5:15PM"))));
+		response.then().body("stopTimes[2]", Matchers.containsInAnyOrder(Arrays.asList(equalTo("6:39AM"), equalTo("8:54AM"), equalTo("5:15PM"))));
 	}
 
 }
