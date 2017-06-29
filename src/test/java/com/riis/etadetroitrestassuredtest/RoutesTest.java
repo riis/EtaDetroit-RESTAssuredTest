@@ -18,6 +18,7 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(45));
 		response.then().body("routeName",Matchers.hasItem("MICHIGAN AVENUE LOCAL"));
 		response.then().body("brandColor",Matchers.hasItem("#BC0E29"));
+		response.then().body("stops[1].latitude[6]", Matchers.equalTo("42.284064"));
 		
 	}
 	@Test
@@ -27,6 +28,7 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(38));
 		response.then().body("routeName",Matchers.hasItem("JEFFERSON"));
 		response.then().body("brandColor",Matchers.hasItem("#054839"));
+		response.then().body("stops[0].latitude", Matchers.hasItem("42.356817"));
 		
 	}
 
@@ -37,6 +39,7 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(3));
 		response.then().body("routeName",Matchers.hasItem("GRATIOT REFLEX to DETROIT"));
 		response.then().body("brandColor",Matchers.hasItem("#498BC5"));
+		response.then().body("stops[0].latitude[7]", Matchers.equalTo("42.441410"));
 	}
 	
 	@Test
@@ -46,6 +49,7 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(1));
 		response.then().body("routeName",Matchers.hasItem("People Mover"));
 		response.then().body("brandColor",Matchers.hasItem("#21487A"));
+		response.then().body("stops[0].latitude[3]", Matchers.equalTo("42.333735"));
 	}
 	@Test
 	public void testRoutes_GivenQLineCompanyID_ReturnsListOfRoutes() {
@@ -54,6 +58,6 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(1));
 		response.then().body("routeName",Matchers.hasItem("QLine"));
 		response.then().body("brandColor",Matchers.hasItem("#973c37"));
-		//response.then().body("stops.latitude", Matchers.hasItem("42.33"));
+		response.then().body("stops[0].latitude", Matchers.hasItem("42.33578"));
 	}
 }
