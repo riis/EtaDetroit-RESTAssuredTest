@@ -54,6 +54,5 @@ public class RoutesTest {
 		response.then().body("size()", equalTo(1));
 		response.then().body("routeName",Matchers.hasItem("QLine"));
 		response.then().body("brandColor",Matchers.hasItem("#973c37"));
-		//response.then().body("stops.latitude", Matchers.hasItem("42.33"));
 	}
 }
