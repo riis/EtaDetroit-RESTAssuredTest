@@ -7,10 +7,17 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 public class RouteStopsLatitudeLongitudeTest {
+	private static final String COMPANY_ID_SMART = "1";
+	private static final String COMPANY_ID_DDOT = "2";
+	private static final String COMPANY_ID_REFLEX = "3";
+	private static final String COMPANY_ID_PEOPLEMOVER = "4";
+	private static final String COMPANY_ID_QLINE = "5";
+	
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenSmartCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		given().contentType("application/json").
-		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/1/routes/stops").
+		and().pathParam("companyID", COMPANY_ID_SMART).
+		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/{companyID}/routes/stops").
 		then().statusCode(200).
 		and().body("size()", equalTo(45)).
 		and().body("brandColor",Matchers.hasItem("#BC0E29")).
@@ -21,7 +28,8 @@ public class RouteStopsLatitudeLongitudeTest {
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenDDOTCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		given().contentType("application/json").
-		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/2/routes/stops").
+		and().pathParam("companyID", COMPANY_ID_DDOT).
+		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/{companyID}/routes/stops").
 		then().statusCode(200).
 		and().body("size()", equalTo(38)).
 		and().body("brandColor",Matchers.hasItem("#054839")).
@@ -32,7 +40,8 @@ public class RouteStopsLatitudeLongitudeTest {
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenReflexCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		given().contentType("application/json").
-		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/3/routes/stops").
+		and().pathParam("companyID", COMPANY_ID_REFLEX).
+		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/{companyID}/routes/stops").
 		then().statusCode(200).
 		and().body("size()", equalTo(3)).
 		and().body("brandColor",Matchers.hasItem("#498BC5")).
@@ -42,7 +51,8 @@ public class RouteStopsLatitudeLongitudeTest {
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenPeopleMoverCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		given().contentType("application/json").
-		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/4/routes/stops").
+		and().pathParam("companyID", COMPANY_ID_PEOPLEMOVER).
+		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/{companyID}/routes/stops").
 		then().statusCode(200).
 		and().body("size()", equalTo(1)).
 		and().body("brandColor",Matchers.hasItem("#21487A")).
@@ -52,7 +62,8 @@ public class RouteStopsLatitudeLongitudeTest {
 	@Test
 	public void testRouteStopsLatitudeLongitude_GivenQLineCompanyID_ReturnsListOfRouteStopsLatitudeLongitude() {
 		given().contentType("application/json").
-		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/5/routes/stops").
+		and().pathParam("companyID", COMPANY_ID_QLINE).
+		when().get("http://ec2-204-236-211-33.compute-1.amazonaws.com:8080/companies/{companyID}/routes/stops").
 		then().statusCode(200).
 		and().body("size()", equalTo(1)).
 		and().body("brandColor",Matchers.hasItem("#973c37")).
